@@ -47,9 +47,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorString.size(), "Bubble Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorString.size(), "Bubble Sort");
             }
             if (escolhaArq >= 7 && escolhaArq <= 22) // Menu 2
             {
@@ -64,9 +62,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorInt.size(), "Bubble Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorInt.size(), "Bubble Sort");
             }
         }
 
@@ -85,9 +81,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorString.size(), "Insertion Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorString.size(), "Insertion Sort");
             }
             if (escolhaArq >= 7 && escolhaArq <= 22)
             {
@@ -102,9 +96,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorInt.size(), "Insertion Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorInt.size(), "Insertion Sort");
             }
         }
 
@@ -123,9 +115,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorString.size(), "Merge Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorString.size(), "Merge Sort");
             }
             if (escolhaArq >= 7 && escolhaArq <= 22)
             {
@@ -140,9 +130,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorInt.size(), "Merge Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorInt.size(), "Merge Sort");
             }
         }
 
@@ -161,9 +149,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorString.size(), "Quick Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorString.size(), "Quick Sort");
             }
             if (escolhaArq >= 7 && escolhaArq <= 22)
             {
@@ -178,9 +164,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorInt.size(), "Quick Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorInt.size(), "Quick Sort");
             }
         }
 
@@ -199,9 +183,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorString.size(), "Selection Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorString.size(), "Selection Sort");
             }
             if (escolhaArq >= 7 && escolhaArq <= 22)
             {
@@ -216,9 +198,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorInt.size(), "Selection Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorInt.size(), "Selection Sort");
             }
         }
 
@@ -237,9 +217,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorString.size(), "Shell Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorString.size(), "Shell Sort");
             }
             if (escolhaArq >= 7 && escolhaArq <= 22)
             {
@@ -254,9 +232,7 @@ int main()
                 cout << "Comparações: " << comp << endl;
                 cout << "Trocas: " << trocas << endl;
                 cout << "Tempo de ordenação: " << time_span.count() << "s\n\n";
-                system("pause");
-                limpaTela();
-                gerarResultados(time_span.count(), comp, trocas, vetorInt.size(), "Shell Sort");
+                criaArquivo(time_span.count(), comp, trocas, vetorInt.size(), "Shell Sort");
             }
         }
         limpaTela();
