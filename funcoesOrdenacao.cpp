@@ -51,9 +51,7 @@ void menuMetodos()
             "3. Merge Sort\n"
             "4. Quick Sort\n"
             "5. Selection Sort\n"
-            "6. Shell Sort\n"
-            "\n"
-            "0. Sair\n";
+            "6. Shell Sort\n";
     cout << "==================================================\n\n";
     cout << "Escolha: ";
 }
@@ -84,106 +82,12 @@ void menuArquivos()
             "19. Lista de números quase ordenada (até 1000)\n"
             "20. Lista de números quase ordenada (até 10000)\n"
             "21. Lista de números quase ordenada (até 100000)\n"
-            "22. Lista de números quase ordenada (até 1000000)\n"
-            "\n"
-            "0. Voltar\n";
+            "22. Lista de números quase ordenada (até 1000000)\n";
     cout << "==================================================\n\n";
     cout << "Escolha: ";
 }
 
 // As funções a seguir são as funções para ordenar cada um dos arquivos pedidos.
-
-void insertionSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned long long *comp)
-{
-    int chave, j;
-    for (int i = 1; i < vetor.size(); i++)
-    {
-        chave = vetor[i];
-        j = i - 1;
-        (*comp)++;
-        while (j >= 0 && vetor[j] > chave)
-        {
-            (*comp)++;
-            vetor[j + 1] = vetor[j];
-            j--;
-            (*trocas)++;
-        }
-        vetor[j + 1] = chave;
-    }
-}
-
-void insertionSortString(vector<string> &vetor, unsigned long long *trocas, unsigned long long *comp)
-{
-    int j;
-    string chave;
-    for (int i = 1; i < vetor.size(); i++)
-    {
-        chave = vetor[i];
-        j = i - 1;
-        (*comp)++;
-        while (j >= 0 && vetor[j] > chave)
-        {
-            (*comp)++;
-            vetor[j + 1] = vetor[j];
-            j--;
-            (*trocas)++;
-        }
-        vetor[j + 1] = chave;
-    }
-}
-
-void selectionSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned long long *comp)
-{
-    int min, aux;
-
-    for (int i = 0; i < vetor.size(); i++)
-    {
-        min = i;
-        for (int j = i + 1; j < vetor.size(); j++)
-        {
-            if (vetor[j] < vetor[min])
-            {
-                (*comp)++;
-                min = j;
-            }
-            else
-            {
-                (*comp)++;
-            }
-        }
-        aux = vetor[i];
-        vetor[i] = vetor[min];
-        vetor[min] = aux;
-        (*trocas)++;
-    }
-}
-
-void selectionSortString(vector<string> &vetor, unsigned long long *trocas, unsigned long long *comp)
-{
-    int min;
-    string aux;
-
-    for (int i = 0; i < vetor.size(); i++)
-    {
-        min = i;
-        for (int j = i + 1; j < vetor.size(); j++)
-        {
-            if (vetor[j] < vetor[min])
-            {
-                (*comp)++;
-                min = j;
-            }
-            else
-            {
-                (*comp)++;
-            }
-        }
-        aux = vetor[i];
-        vetor[i] = vetor[min];
-        vetor[min] = aux;
-        (*trocas)++;
-    }
-}
 
 void bubbleSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned long long *comp)
 {
@@ -252,149 +156,43 @@ void bubbleSortString(vector<string> &vetor, unsigned long long *trocas, unsigne
     }
 }
 
-void shellSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned long long *comp)
+void insertionSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned long long *comp)
 {
-    int h, x, i, j;
-    for (h = 1; h < vetor.size(); h = 3 * h + 1)
-        ;
-    while (h > 1)
+    int chave, j;
+    for (int i = 1; i < vetor.size(); i++)
     {
-        h = h / 3;
-        for (i = h; i < vetor.size(); i++)
-        {
-            x = vetor[i];
-            j = i;
-            while (j >= h && vetor[j - h] > x)
-            {
-                (*comp)++;
-                vetor[j] = vetor[j - h];
-                j = j - h;
-                (*trocas)++;
-            }
-            vetor[j] = x;
-            (*trocas)++;
-        }
-    }
-}
-
-void shellSortString(vector<string> &vetor, unsigned long long *trocas, unsigned long long *comp)
-{
-    int h, i, j;
-    string x;
-    for (h = 1; h < vetor.size(); h = 3 * h + 1)
-        ;
-    while (h > 1)
-    {
-        h = h / 3;
-        for (i = h; i < vetor.size(); i++)
-        {
-            x = vetor[i];
-            j = i;
-            while (j >= h && vetor[j - h] > x)
-            {
-                (*comp)++;
-                vetor[j] = vetor[j - h];
-                j = j - h;
-                (*trocas)++;
-            }
-            vetor[j] = x;
-            (*trocas)++;
-        }
-    }
-}
-
-void quickSortInt(vector<int> &vetor, int esquerda, int direita, unsigned long long *trocas, unsigned long long *comp)
-{
-    int aux, i = esquerda, j = direita;
-    int pivo = vetor[(esquerda + direita) / 2];
-
-    while (i <= j)
-    {
-        while (vetor[i] < pivo)
-        {
-            i++;
-        }
-        while (vetor[j] > pivo)
-        {
-            j--;
-        }
+        chave = vetor[i];
+        j = i - 1;
         (*comp)++;
-        if (i <= j)
+        while (j >= 0 && vetor[j] > chave)
         {
-            aux = vetor[i];
-            vetor[i] = vetor[j];
-            vetor[j] = aux;
-            i++;
+            (*comp)++;
+            vetor[j + 1] = vetor[j];
             j--;
             (*trocas)++;
         }
-    }
-    (*comp)++;
-    if (esquerda < j)
-    {
-        quickSortInt(vetor, esquerda, j, trocas, comp);
-    }
-    (*comp)++;
-    if (direita > i)
-    {
-        quickSortInt(vetor, i, direita, trocas, comp);
+        vetor[j + 1] = chave;
     }
 }
 
-void quickSortString(vector<string> &vetor, int esquerda, int direita, unsigned long long *trocas, unsigned long long *comp)
+void insertionSortString(vector<string> &vetor, unsigned long long *trocas, unsigned long long *comp)
 {
-    int i = esquerda, j = direita;
-    auto pivo = vetor[(esquerda + direita) / 2];
-
-    while (i <= j)
+    int j;
+    string chave;
+    for (int i = 1; i < vetor.size(); i++)
     {
-        while (vetor[i] < pivo)
-        {
-            i++;
-        }
-        while (vetor[j] > pivo)
-        {
-            j--;
-        }
+        chave = vetor[i];
+        j = i - 1;
         (*comp)++;
-        if (i <= j)
+        while (j >= 0 && vetor[j] > chave)
         {
-            auto aux = vetor[i];
-            vetor[i] = vetor[j];
-            vetor[j] = aux;
-            i++;
+            (*comp)++;
+            vetor[j + 1] = vetor[j];
             j--;
             (*trocas)++;
         }
+        vetor[j + 1] = chave;
     }
-    (*comp)++;
-    if (esquerda < j)
-    {
-        quickSortString(vetor, esquerda, j, trocas, comp);
-    }
-    (*comp)++;
-    if (direita > i)
-    {
-        quickSortString(vetor, i, direita, trocas, comp);
-    }
-}
-
-void imprimeVetorInt(vector<int> &vetor)
-{
-    for (int i = 0; i < vetor.size(); i++)
-    {
-        cout << vetor[i] << endl;
-    }
-    cout << endl;
-}
-
-void imprimeVetorString(vector<string> &vetor)
-{
-    for (int i = 0; i < vetor.size(); i++)
-    {
-        cout << vetor[i] << endl;
-    }
-    cout << endl;
 }
 
 void mergeString(vector<string> &vetor, int inicio, int meio, int fim, unsigned long long *trocas, unsigned long long *comp)
@@ -498,31 +296,206 @@ void mergeSortInt(vector<int> &vetor, int inicio, int fim, unsigned long long *t
     }
 }
 
+void quickSortInt(vector<int> &vetor, int esquerda, int direita, unsigned long long *trocas, unsigned long long *comp)
+{
+    int aux, i = esquerda, j = direita;
+    int pivo = vetor[(esquerda + direita) / 2];
+
+    while (i <= j)
+    {
+        while (vetor[i] < pivo)
+        {
+            i++;
+        }
+        while (vetor[j] > pivo)
+        {
+            j--;
+        }
+        (*comp)++;
+        if (i <= j)
+        {
+            aux = vetor[i];
+            vetor[i] = vetor[j];
+            vetor[j] = aux;
+            i++;
+            j--;
+            (*trocas)++;
+        }
+    }
+    (*comp)++;
+    if (esquerda < j)
+    {
+        quickSortInt(vetor, esquerda, j, trocas, comp);
+    }
+    (*comp)++;
+    if (direita > i)
+    {
+        quickSortInt(vetor, i, direita, trocas, comp);
+    }
+}
+
+void quickSortString(vector<string> &vetor, int esquerda, int direita, unsigned long long *trocas, unsigned long long *comp)
+{
+    int i = esquerda, j = direita;
+    auto pivo = vetor[(esquerda + direita) / 2];
+
+    while (i <= j)
+    {
+        while (vetor[i] < pivo)
+        {
+            i++;
+        }
+        while (vetor[j] > pivo)
+        {
+            j--;
+        }
+        (*comp)++;
+        if (i <= j)
+        {
+            auto aux = vetor[i];
+            vetor[i] = vetor[j];
+            vetor[j] = aux;
+            i++;
+            j--;
+            (*trocas)++;
+        }
+    }
+    (*comp)++;
+    if (esquerda < j)
+    {
+        quickSortString(vetor, esquerda, j, trocas, comp);
+    }
+    (*comp)++;
+    if (direita > i)
+    {
+        quickSortString(vetor, i, direita, trocas, comp);
+    }
+}
+
+void selectionSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned long long *comp)
+{
+    int min, aux;
+
+    for (int i = 0; i < vetor.size(); i++)
+    {
+        min = i;
+        for (int j = i + 1; j < vetor.size(); j++)
+        {
+            if (vetor[j] < vetor[min])
+            {
+                (*comp)++;
+                min = j;
+            }
+            else
+            {
+                (*comp)++;
+            }
+        }
+        aux = vetor[i];
+        vetor[i] = vetor[min];
+        vetor[min] = aux;
+        (*trocas)++;
+    }
+}
+
+void selectionSortString(vector<string> &vetor, unsigned long long *trocas, unsigned long long *comp)
+{
+    int min;
+    string aux;
+
+    for (int i = 0; i < vetor.size(); i++)
+    {
+        min = i;
+        for (int j = i + 1; j < vetor.size(); j++)
+        {
+            if (vetor[j] < vetor[min])
+            {
+                (*comp)++;
+                min = j;
+            }
+            else
+            {
+                (*comp)++;
+            }
+        }
+        aux = vetor[i];
+        vetor[i] = vetor[min];
+        vetor[min] = aux;
+        (*trocas)++;
+    }
+}
+
+void shellSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned long long *comp)
+{
+    int h, x, i, j;
+    for (h = 1; h < vetor.size(); h = 3 * h + 1)
+        ;
+    while (h > 1)
+    {
+        h = h / 3;
+        for (i = h; i < vetor.size(); i++)
+        {
+            x = vetor[i];
+            j = i;
+            while (j >= h && vetor[j - h] > x)
+            {
+                (*comp)++;
+                vetor[j] = vetor[j - h];
+                j = j - h;
+                (*trocas)++;
+            }
+            vetor[j] = x;
+            (*trocas)++;
+        }
+    }
+}
+
+void shellSortString(vector<string> &vetor, unsigned long long *trocas, unsigned long long *comp)
+{
+    int h, i, j;
+    string x;
+    for (h = 1; h < vetor.size(); h = 3 * h + 1)
+        ;
+    while (h > 1)
+    {
+        h = h / 3;
+        for (i = h; i < vetor.size(); i++)
+        {
+            x = vetor[i];
+            j = i;
+            while (j >= h && vetor[j - h] > x)
+            {
+                (*comp)++;
+                vetor[j] = vetor[j - h];
+                j = j - h;
+                (*trocas)++;
+            }
+            vetor[j] = x;
+            (*trocas)++;
+        }
+    }
+}
+
+void imprimeVetorInt(vector<int> &vetor)
+{
+    for (int i = 0; i < vetor.size(); i++)
+    {
+        cout << vetor[i] << endl;
+    }
+    cout << endl;
+}
+
+void imprimeVetorString(vector<string> &vetor)
+{
+    for (int i = 0; i < vetor.size(); i++)
+    {
+        cout << vetor[i] << endl;
+    }
+    cout << endl;
+}
+
 // As funções abaixo servem para pegar o nome dos arquivos introduzidos em um vetor de strings, e passando-os como parâmetro
 // para as funções de arquivo.
-
-vector<string> listaString(string nomeArquivo)
-{
-    ifstream archive;
-    archive.open(nomeArquivo);
-
-    if (!archive.is_open())
-    {
-        cerr << "erro\n";
-        archive.clear();
-    }
-
-    vector<string> dicionario;
-    while (!archive.eof())
-    {
-        string aux;
-        archive >> aux;
-        dicionario.push_back(aux);
-    }
-
-    archive.close();
-    return dicionario;
-}
 
 vector<int> listaInt(string nomeArquivo)
 
@@ -548,9 +521,32 @@ vector<int> listaInt(string nomeArquivo)
     return numeros;
 }
 
+vector<string> listaString(string nomeArquivo)
+{
+    ifstream archive;
+    archive.open(nomeArquivo);
+
+    if (!archive.is_open())
+    {
+        cerr << "erro\n";
+        archive.clear();
+    }
+
+    vector<string> dicionario;
+    while (!archive.eof())
+    {
+        string aux;
+        archive >> aux;
+        dicionario.push_back(aux);
+    }
+
+    archive.close();
+    return dicionario;
+}
+
 // A função abaixo gera um arquivo em formato .csv (Excel) contendo os dados da última iteração (tempo, trocas e comparações).
 
-void gerarResultados(double tempos, unsigned long long comp, unsigned long long trocas, int tamanho, string metodo)
+void criaArquivo(double tempos, unsigned long long comp, unsigned long long trocas, int tamanho, string metodo)
 {
     string endereco = "./" + metodo + ".csv";
     ofstream archive(endereco);
