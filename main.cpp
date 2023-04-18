@@ -25,6 +25,7 @@ int main()
     cin >> escolhaMetodo;
     if (escolhaMetodo > 0 && escolhaMetodo < 7) // if para validar a escolha do usuário (método de ordenação).
     {
+        limpaTela();
         menuArquivos();
         cin >> escolhaArq;
         if (escolhaMetodo == 1) // Todos as estruturas de if a partir daqui combinam a escolha do usuário em relação ao método com
