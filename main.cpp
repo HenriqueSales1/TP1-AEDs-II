@@ -235,6 +235,5 @@ int main()
                 criaArquivo(time_span.count(), comp, trocas, vetorInt.size(), "Shell Sort");
             }
         }
-        limpaTela();
     }
 }
