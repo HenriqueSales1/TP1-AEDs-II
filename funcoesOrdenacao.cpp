@@ -385,6 +385,7 @@ void selectionSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned l
             {
                 (*comp)++;
                 min = j;
+                (*trocas)++;
             }
             else
             {
@@ -394,7 +395,6 @@ void selectionSortInt(vector<int> &vetor, unsigned long long *trocas, unsigned l
         aux = vetor[i];
         vetor[i] = vetor[min];
         vetor[min] = aux;
-        (*trocas)++;
     }
 }
 
@@ -412,6 +412,7 @@ void selectionSortString(vector<string> &vetor, unsigned long long *trocas, unsi
             {
                 (*comp)++;
                 min = j;
+                (*trocas)++;
             }
             else
             {
@@ -421,7 +422,6 @@ void selectionSortString(vector<string> &vetor, unsigned long long *trocas, unsi
         aux = vetor[i];
         vetor[i] = vetor[min];
         vetor[min] = aux;
-        (*trocas)++;
     }
 }
 
